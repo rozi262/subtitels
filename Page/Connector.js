@@ -1,6 +1,6 @@
 SERVER_URL = "http://localhost:8000//"
 
-function SERVER_MESSEGE(kind, typ, data, cont)
+function SERVER_MESSEGE(kind, typ, data, cont, fail_check)
 {
     var xhr = new XMLHttpRequest();
     xhr.open(kind,SERVER_URL + typ,true);
@@ -8,9 +8,13 @@ function SERVER_MESSEGE(kind, typ, data, cont)
     {
         if(xhr.readyState === 4)
         {
-            console.log("done")
-            const son = JSON.parse(xhr.responseText)
-            cont(son.data,son.data2,son.data3);
+            if(xhr.status == 200)
+            {
+                const son = JSON.parse(xhr.responseText)
+                cont(son.data,son.data2,son.data3);
+            }
+            else if(fail_check)
+                window.location.href = "FailPage.html"
         }
         else
             console.log("fail to post");
@@ -20,9 +24,9 @@ function SERVER_MESSEGE(kind, typ, data, cont)
 
 function SERVER_POST(typ, data, cont)
 {
-    SERVER_MESSEGE("POST",typ,data,cont)
+    SERVER_MESSEGE("POST",typ,data,cont,true)
 }
 function SERVER_GET(typ, data, cont)
 {
-    SERVER_MESSEGE("GET",typ,data,cont)
+    SERVER_MESSEGE("GET",typ,data,cont,true)
 }

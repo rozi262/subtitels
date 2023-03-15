@@ -4,11 +4,13 @@ import ffmpeg
 from threading import Thread
 
 def get_subtitels(path,model="base", file_path=True, arr:list = None):
+    print("run with model [" + model + "]")
     def covert_wisper_time(time):
         hours = int(time // 3600)
         minutes = int((time // 60) % 60)
         seconds = int(time % 60)
-        return str(hours) + ":" + str(minutes) + ":" + str(seconds) + ",000"
+        mils = int((time % 1) * 1000)
+        return str(hours) + ":" + str(minutes) + ":" + str(seconds) + "," + str(mils)
         
         
     yield "listening"
@@ -39,24 +41,27 @@ def add_subtitels(path,model="base"):
 
 class srtAdder:#mange by thread the subtitels adding
     
-    def __init__(self, path):
+    def __init__(self, path, quality="base"):
         self.path = path
+        self.quality = quality
         self.messege = "not started"
+        self.last_text = ""
         self.report_arr = []
+        self.report_arr.append([0,"prestart"])
 
         self.thread = Thread(target=self.getter,args=[])
         self.thread.start()
 
     def getter(self):
         print("start")
-        for v in get_subtitels(self.path,file_path=False,arr=self.report_arr):
+        for v in get_subtitels(self.path,model=self.quality,file_path=False,arr=self.report_arr):
             #print("get value " + str(v))
             self.messege = v
 
     def getProgress(self):
         if(len(self.report_arr) == 0): return "start","prestart"
-        time = self.report_arr[-1][0]
-        return time, self.report_arr[-1][1]
+        last = self.report_arr[-1]
+        return last[0],last[1]
 
     def getMessege(self) ->str:
         return self.messege

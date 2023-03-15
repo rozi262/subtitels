@@ -8,10 +8,10 @@ class User():
         self.srt_adder = None
         
     #the srt methods
-    def get_srt_from_audio(self, file):
+    def get_srt_from_audio(self, file, quality="base"):
         path = fm.STORGE_FOLDER + "file" + str(self.ip) +"." +  fm.get_content_type(file.content_type)
         file.save(path)
-        self.srt_adder = srtAdder(path)
+        self.srt_adder = srtAdder(path,quality)
     
     def get_srt_from_audio_report(self):    #return thre varibales messege||text - if the program is done the value will be the srl else the value will be the last line converted, progress - progress report, done - boolean that say if the program finished or not
         messege = self.srt_adder.getMessege()

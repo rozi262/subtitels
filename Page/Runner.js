@@ -54,7 +54,7 @@ DROP_OBJECT.addEventListener("change",ev => DropEvent(ev));
 DROP_OBJECT.addEventListener("dragenter",ev => dragEnterEvent(ev));
 DROP_OBJECT.addEventListener("dragleave",ev => dragLeaveEvent(ev));
 
-addEventListener("resize",()=>reload())
+addEventListener("resize",()=>{reload(); PROGRESS_BAR.scroll(0);})
 addEventListener("wheel",(event)=>
 {
     PROGRESS_BAR.scroll(parseInt(event.deltaY / 8));

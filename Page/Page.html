@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style1.css" />
 </head>
 <body style="background-color:gray; position: absolute; overflow: hidden;">
+    <h1 style="margin-left: 50px; margin-top: 0px; font-size: 60px;">srt creater</h1>
+    
     <div id="drop_area" class="DropArea">
         <h1>drop you audio\video file</h1>
         <input id="drop_object" class="DropObject" type="file"/>
@@ -22,6 +24,15 @@
         <label id="presentes_label" style="position:absolute; top:95%; width: 100%; height:5%; text-align: center; font-weight: bold; margin: 0px;">-</label>
     </div>
     
+    <h2 id="quality_selector_label" style="position: absolute;">quality </h2>
+    <select id="quality_selector" >
+        <option value="tiny">very low</option>
+        <option value="base">low</option>
+        <option value="small">medium</option>
+        <option value="medium">good</option>
+        <option value="large">great</option>
+        <option value="large-v2">best</option>
+    </select>
 
     <script src="Connector.js"></script>
     <script src="User.js"></script>

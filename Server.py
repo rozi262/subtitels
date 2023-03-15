@@ -24,16 +24,21 @@ def findUser() -> User:
         if(c.isnumeric()): ip += c
     return getUser(ip)
 
-@app.route("/server_test/") #test connection to the server
+ #test connection to the server
+
+@app.route("/server_test", methods=['GET'])
 def serverTest():
-    return sendRespone("server connection test")
+    print("get test")
+    user = findUser()
+    return sendRespone("hello " + user.ip)
     
 
 @app.route("/send_srt", methods=['POST'])
 def sendStr():
     user = findUser()
     file = request.files.get("file")
-    user.get_srt_from_audio(file)
+    quality = request.form.get("quality")
+    user.get_srt_from_audio(file,quality)
     return sendRespone("resived the file: [" + file.name + "]")
 
 @app.route("/get_srt", methods=['GET'])

@@ -1,4 +1,5 @@
-
+//just test the server connection
+//SERVER_GET("server_test","page",()=>{})
 
 const MARGIN = 30;
 const TOP_HEIGHT = 100
@@ -17,6 +18,13 @@ PROGRESS_AREA.style.width = (SIDE_WIDTH - MARGIN) + "px";
 const PROGRESS_DIV = document.getElementById("progress_label_div");
 const PRESENTES_LABEL = document.getElementById("presentes_label");
 
+const QUALITY_SELECTOR_LABEL = document.getElementById("quality_selector_label");
+QUALITY_SELECTOR_LABEL.style.top = "0px"
+
+const QUALITY_SELECTOR = document.getElementById("quality_selector")
+QUALITY_SELECTOR.value = "large";
+QUALITY_SELECTOR.style.top = (MARGIN * 2) + "px"
+
 const USER = new User();
 
 function reload()
@@ -30,6 +38,9 @@ function reload()
     PROGRESS_AREA.style.left = (PAGE_WIDTH - SIDE_WIDTH ) + "px"
     PROGRESS_AREA.style.height = DROP_AREA.style.height;
 
+    QUALITY_SELECTOR_LABEL.style.left = PROGRESS_AREA.style.left;
+    QUALITY_SELECTOR.style.left = PROGRESS_AREA.style.left;
+
     console.log((PAGE_WIDTH - SIDE_WIDTH - MARGIN * 2))
 }
 reload()
@@ -38,7 +49,6 @@ reload()
 
 //progress bar methods
 let locY = 0;
-const DIV_HEIGHT = PROGRESS_DIV.offsetHeight;
 const LINE_MARGIN = 20;
 const Lines = [];
 class Line
@@ -59,7 +69,7 @@ class Line
     }
     updateLoction()
     {
-        if(this.y + this.height < locY || this.y > locY + DIV_HEIGHT)
+        if(this.y + this.height < locY || this.y > locY + PROGRESS_DIV.offsetHeight)
         {
             this.element.style.visibility = "hidden";
             return;
@@ -73,6 +83,7 @@ class ProgressLabel
     constructor()
     {
         this.scrolling = false;
+        this.startTime = Date.now()
     }
     add_to_progressbar(text)
     {
@@ -80,22 +91,9 @@ class ProgressLabel
         Lines[Lines.length] = new Line(text);
         if(!this.scrolling)  this.scroll(500);
     }
-    /*remove_last_line()
-    {
-        const text = PROGRESS_LABEL.textContent.substring(0,PROGRESS_LABEL.textContent.length - this.lastLine.length - 1);
-        PROGRESS_LABEL.textContent = text;
-        let build = ""
-        for(let i = text.length - 1; i >= 0; i--)
-        {
-            const a = text.charAt(i);
-            if(a == '\n') break
-            else build += a;
-        }
-        this.lastLine = build.split("").reverse().join("");
-    }*/
     scroll(amount)
     {
-        const max_y = Lines.length == 0?0:(Math.max(0,Lines[Lines.length - 1].y + Lines[Lines.length - 1].height - DIV_HEIGHT));
+        const max_y = Lines.length == 0?0:(Math.max(0,Lines[Lines.length - 1].y + Lines[Lines.length - 1].height - PROGRESS_DIV.offsetHeight));
         locY = Math.max(Math.min(locY + amount,max_y),0);
         this.scrolling = locY != max_y;
         for(let i = 0; i < Lines.length; i++)
@@ -104,7 +102,12 @@ class ProgressLabel
 
     set_prorgess_val(presentes)
     {
-        PRESENTES_LABEL.textContent = parseInt(presentes) + "%";
+        
+        const time_pass = Date.now() - this.startTime;
+        const progress1 = presentes / 100;
+        const time_left = parseInt(((time_pass / progress1) - time_pass) / 100) / 10;
+
+        PRESENTES_LABEL.textContent = parseInt(presentes) + "%" + ", left: " + time_left + " secands";
     }
 
 }

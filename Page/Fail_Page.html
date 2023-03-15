@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>error page</title>
+    <link rel="stylesheet" href="style1.css" />
+</head>
+<body style="background-color:gray; position: absolute; overflow: hidden;">
+
+    <h1>look like you can't acsses the server</h1>
+    
+    <input id="refrash_button" type="button" value="try again" style="margin-left: 100%;">
+    
+    <script src="Connector.js"></script>
+    <script>
+        function checkConnection()
+        {
+            SERVER_MESSEGE("GET","server_test",new FormData(),(res)=>{window.location.href="Page.html";},false)
+        }
+        document.getElementById("refrash_button").addEventListener("click",event => { checkConnection();})
+        checkConnection();
+    </script>
+</body>
+</html>

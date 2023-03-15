@@ -11,6 +11,7 @@ class User
     {
         const data = new FormData();
         data.append("file",file,"file");
+        data.append("quality",QUALITY_SELECTOR.value);
         SERVER_POST("send_srt",data,cont);
     }
     get_file(cont)
