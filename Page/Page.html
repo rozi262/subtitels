@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>subtitels adder</title>
+    <link rel="stylesheet" href="style1.css" />
+</head>
+<body style="background-color:gray; position: absolute; overflow: hidden;">
+    <div id="drop_area" class="DropArea">
+        <h1>drop you audio\video file</h1>
+        <input id="drop_object" class="DropObject" type="file"/>
+    </div>
+
+    <div id="progress_area", class="ProgressArea">
+        <h1>progress bar</h1>
+        <hr style="position: absolute; width: 100%; height: 1%; background-color: black; margin-top: 30%;">
+        <div id="progress_label_div" style="overflow: hidden;  width: 90%; position: absolute; top: 15%; height: 70%;">
+            
+        </div>
+        <hr style="position: absolute; width: 100%; height: 1%; background-color: black; top: 90%;">
+        <label id="presentes_label" style="position:absolute; top:95%; width: 100%; height:5%; text-align: center; font-weight: bold; margin: 0px;">-</label>
+    </div>
+    
+
+    <script src="Connector.js"></script>
+    <script src="User.js"></script>
+    <script src="UI.js"></script>
+    <script src="Runner.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+
+.DropArea
+{
+    position: absolute;
+    background-color: #ffe4c4;
+    border-radius: 25px;
+    font-family: sans-serif;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+}
+.DropObject
+{
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    font-size: 0;
+}
+
+.ProgressArea
+{
+    position: absolute;
+    overflow:hidden;
+    background-color: azure;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+}
+.ProgressLabel
+{
+    position:absolute;
+    font-size:large;
+    border-right: 0px;
+    border-left: 0px;
+    border-top: 0px;
+    border-style: solid;
+}

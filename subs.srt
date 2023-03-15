@@ -1,0 +1,144 @@
+
+1
+0:0:0,000 --> 0:0:8,000
+ Imagine two runners are running a race. The runner on the left will call him the blue runner has a velocity of 10 meters per second.
+
+2
+0:0:8,000 --> 0:0:14,000
+ The runner on the right, the white runner, has a velocity of 5 meters per second and a 200 meter lead.
+
+3
+0:0:14,000 --> 0:0:27,000
+ In order to find where the blue runner will catch up and ultimately pass the white runner, we can do some simple algebra instead of the equation 10t equals 5t plus 200, where t represents time.
+
+4
+0:0:27,000 --> 0:0:35,000
+ If we subtract 5t on both sides, then divide both sides by 5, we isolate t and get a value of 40 seconds.
+
+5
+0:0:35,000 --> 0:0:41,000
+ Basically, after 40 seconds, the blue runner will catch up and pass the white runner.
+
+6
+0:0:41,000 --> 0:0:49,000
+ Or will he? In general, in order to pass the runner in front of you, you first obviously need to reach the position of the runner in front of you.
+
+7
+0:0:49,000 --> 0:0:54,000
+ So for the blue runner, this means he needs to run 200 meters to catch up with the white runner.
+
+8
+0:0:54,000 --> 0:0:59,000
+ Because the blue runner is running at 10 meters per second, this will take him 20 seconds.
+
+9
+0:0:59,000 --> 0:1:4,000
+ Well, after 20 seconds, the white runner also moves and he moves 100 meters.
+
+10
+0:1:4,000 --> 0:1:14,000
+ Now, the blue runner needs to run 100 meters. In this takes him 10 seconds. Well, after 10 seconds, the white runner moves another distance and that distance is 50 meters.
+
+11
+0:1:14,000 --> 0:1:19,000
+ Now, the blue runner needs to run 50 meters and this will take him 5 seconds.
+
+12
+0:1:19,000 --> 0:1:23,000
+ The white runner in 5 seconds runs another distance and that will be 25 meters.
+
+13
+0:1:23,000 --> 0:1:31,000
+ As you can probably guess, this process goes on forever. The blue runner will be able to get infinitely close to the white runner without catching up or passing.
+
+14
+0:1:31,000 --> 0:1:36,000
+ This idea of one point getting infinitely close to another is called a limit.
+
+15
+0:1:36,000 --> 0:1:41,000
+ Let's look at a similar example. Except for this time, it's on a number line.
+
+16
+0:1:41,000 --> 0:1:48,000
+ If we take any two points on a number line, let's say 0 and 1. We can find the halfway point between them. This is 1 half.
+
+17
+0:1:48,000 --> 0:1:59,000
+ Now, let's find half the distance between the new points, 1 half and 1. It'll be 3 quarters. If we repeat this process, we will get 7 eighths and then 15-16ths and so on.
+
+18
+0:1:59,000 --> 0:2:6,000
+ As you can guess, this can also go on forever. We get infinitely close to another number without really reaching it.
+
+19
+0:2:6,000 --> 0:2:9,000
+ And this is the basis for all calculus.
+
+20
+0:2:9,000 --> 0:2:19,000
+ Do you remember the definition of a derivative? It's the limit as h approaches 0 of f of x plus h minus f of x all over h.
+
+21
+0:2:19,000 --> 0:2:25,000
+ Memorizing what this means can help you solve derivatives. But what does this equation actually represent?
+
+22
+0:2:25,000 --> 0:2:32,000
+ Let's use a simple example of a parabola. Remember, a derivative is the same as the instantaneous rate of change.
+
+23
+0:2:32,000 --> 0:2:40,000
+ Or in other words, the slope at a single point. But to find slope, as we learned in algebra 1, we need two points.
+
+24
+0:2:40,000 --> 0:2:45,000
+ This is where limits come in. Let's start by taking any point. Let's say 1 comma 1.
+
+25
+0:2:45,000 --> 0:2:54,000
+ Now, if we were to choose another point and find the slope, that would be an average rate of change. So how do we find the instantaneous rate of change?
+
+26
+0:2:55,000 --> 0:3:1,000
+ Let's take the next point, like 2, 4, and find the slope. That would be an average rate of change.
+
+27
+0:3:1,000 --> 0:3:9,000
+ In order to find the instantaneous rate of change, we have to slide that point to an even closer number, like 1, 1, and find the slope.
+
+28
+0:3:9,000 --> 0:3:14,000
+ And then take an even closer number of other slope of that, and then even closer.
+
+29
+0:3:14,000 --> 0:3:22,000
+ Using the number line example from earlier, we can get the second point so close to the first that we can approximate the slope to be a single point.
+
+30
+0:3:25,000 --> 0:3:31,000
+ The definition of a derivative is just the same process with variables. We start with the point x comma f of x.
+
+31
+0:3:31,000 --> 0:3:41,000
+ The second point would be x plus h comma f of x plus h, where h represents the distance between the x value of the first point and the x value of the second point.
+
+32
+0:3:41,000 --> 0:3:46,000
+ Then, we can decrease h until the distance between the two points gets closer and closer to 0.
+
+33
+0:3:46,000 --> 0:3:56,000
+ If you think in terms of changing y over change x, we can write that as f of x plus h minus f of x all over x plus h minus x.
+
+34
+0:3:56,000 --> 0:4:6,000
+ But we need to remember to say limit as h approaches 0, because we're sliding that second point with a distance h away, closer and closer to the first point until that distance is 0.
+
+35
+0:4:6,000 --> 0:4:11,000
+ Also, we can cancel that x in the denominator. So that's the definition of a derivative.
+
+36
+0:4:11,000 --> 0:4:24,000
+ The limit, although it can create rather interesting problems like that first example about the runners, is the fundamental building block of calculus, and it is important to really know what they represent.
